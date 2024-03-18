@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+	<title>Shop</title>
+</head>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		outline: none;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	ol, ul {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	html,
+	body {
+		height: 100%;
+		font-family: "Arial";
+	}
+
+	input[type="submit"],
+	input[type="button"] {
+		-webkit-appearance: none;
+	}
+
+	.container{
+		max-width: 1070px;
+		margin: 50px auto;
+	}
+
+	.row{
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -12px;
+	}
+
+	.col-4{
+		flex: 0 0 calc(100% / 3);
+		max-width: calc(100% / 3);
+		padding: 0 12px;
+		margin-bottom: 24px;
+	}
+
+	header{
+		background-color: #003944;
+		padding: 24px 0;
+	}
+
+	header ul{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	header ul li{
+		padding: 0 12px;
+	}
+
+	header ul li a{
+		font-size: 18px;
+		font-weight: 700;
+		color: #fff;
+		padding: 8px 12px;
+	}
+
+	.product-item{
+		border: 1px solid #c9c9c9;
+		box-shadow: 0 3px 16px rgba(0, 0, 0, 0.24);
+		border-radius: 5px;
+		display: block;
+	}
+
+	.product-item-img-wrap{
+		width: 100%;
+		height: 250px;
+	}
+	.product-item-img-wrap a{
+		display: block;
+		height: 100%;
+	}
+
+	.product-item-img-wrap img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.product-item-info{
+		padding: 24px 16px;
+	}
+
+	.product-item-info h2 a{
+		display: block;
+		font-size: 24px;
+		color: #003944;
+		margin-bottom: 16px;
+	}
+
+	.product-item-price{
+		font-size: 18px;
+		color: #000000;
+		margin-bottom: 12px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #c9c9c9;
+	}
+
+	.btn{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 200px;
+		height: 40px;
+		border: none;
+		color: #ffffff;
+		background-color: #003944;
+		font-size: 18px;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+
+	.btn-add-cart{
+		width: 100%;
+	}
+	
+	.cart{
+		position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 95px;
+		right: 48px;
+		font-size: 20px;
+		font-weight: 700;
+		width: 70px;
+		height: 70px;
+		border: none;
+		color: #fff;
+		background-color: #008280;
+		border-radius: 50%;
+		padding: 12px;
+		cursor: pointer
+	}
+
+	.basket-total{
+		font-size: 24px;
+		font-weight: 700;
+		padding: 20px 0;
+		text-align: right;
+	}
+	
+	.basket-item{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 12px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #c9c9c9
+	}
+	
+	.basket-title{
+		font-size: 22px;
+		font-weight: 700;
+	}
+	
+	.basket-btn{
+		border: none;
+		font-size: 20px;
+		background-color: #003944;
+		color: #ffffff;
+		width: 24px;
+		height: 24px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center
+	}
+	
+	.basket-count{
+		font-size: 22px;
+		margin: 0 16px
+	}
+	
+	.basket-price{
+		font-size: 22px;
+		margin: 0 16px
+	}
+	
+	.basket-remove{
+		border: none;
+		font-size: 16px;
+		background-color: #cf1a57;
+		color: #ffffff;
+		width: 24px;
+		height: 24px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 24px
+	}
+
+	.input{
+		font-size: 16px;
+		padding: 8px 16px;
+		border: 1px solid #c9c9c9;
+		border-radius: 3px;
+		width: 100%;
+		height: 40px;
+	}
+
+	.filter{
+		margin: 24px 0;
+		max-width: 500px;
+	}
+
+	.search{
+		margin-bottom: 24px;
+	}
+
+	.product-page{
+		margin: 50px 0;
+	}
+
+	.order-item{
+		margin-bottom: 12px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #c9c9c9;
+	}
+
+	.order-info{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 24px;
+	}
+	.order-img-wrap{
+		width: 100px;
+		height: 100px;
+	}
+	.order-img-wrap img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	#form > div{
+		margin-bottom: 16px;
+	}
+
+
+</style>
+
+<body>
+	<div id="root"></div>
+</body>
+</html>
