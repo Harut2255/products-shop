@@ -26,7 +26,6 @@ const App: FC = () => {
                 <Route path='/' element={<Products/>}/>
                 <Route path='/Products' element={<Products/>}/>
                 <Route path="products/:id" element={<ProductPage/>}/>
-                <Route path='/admin' element={<Admin/>}/>
                 <Route path='/add' element={<AddProduct/>}/>
                 <Route path='/orders' element={<Orders/>}/>
                 <Route path='*' element={<h1>Not Found</h1>}/>
